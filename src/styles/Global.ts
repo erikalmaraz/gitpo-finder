@@ -13,12 +13,16 @@ const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
   body {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
+    font-size: 14px;
   }
   button {
     cursor: pointer;
   }
   h1 {
-    font-size: 35px;
+    font-size: 2.5em;
+  }
+  h3{
+    font-size: 1.78em;
   }
   p{
     margin: 8px;
