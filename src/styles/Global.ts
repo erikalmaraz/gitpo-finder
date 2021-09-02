@@ -18,7 +18,11 @@ const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
     cursor: pointer;
   }
   h1 {
-    font-size: 20px;
+    font-size: 35px;
+  }
+  p{
+    margin: 8px;
+    font-size: 15px;
   }
 `;
 

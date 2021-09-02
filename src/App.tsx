@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Router, RouteComponentProps, Link } from "@reach/router";
-import Home from "./pages/Home/Home";
 import GlobalStyles from "./styles/Global";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./styles/Theme";
-import Header  from "./components/Header/Header";
+// Layout componets
+import Header from "./components/Header/Header";
+// Views/Containers
+import Home from "./pages/Home/Home";
+import User from "./pages/User/User";
+
 function App() {
   const [theme, setTheme] = useState("light");
   const themeToggler = () => {
@@ -18,6 +22,7 @@ function App() {
         <Header />
         <Router>
           <RouterPage path="/" pageComponent={<Home />} />
+          <RouterPage path="/user/:username" pageComponent={<User />} />
         </Router>
       </ThemeProvider>
     </>

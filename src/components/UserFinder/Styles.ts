@@ -2,11 +2,15 @@ import styled from "styled-components";
 
 export const Finder = styled.input.attrs({
   type: "text",
+  placeholder: "Type a username..."
 })`
-  width: 80%;
-  max-width: 200px;
-  background-color: #f9f9f9;
-  border-radius: 5px;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 6px;
+  border: 1px solid #999;
+  padding: 10px;
+  margin: 10px 0;
+  background: #ddd;
 `;
 
 export const SubmitButton = styled.button.attrs({
@@ -15,6 +19,11 @@ export const SubmitButton = styled.button.attrs({
   background: #333;
   color: #fff;
   text-align: center;
-  min-width: 90px;
   border-radius: 5px;
+  border: 0;
+  padding: 8px;
+  margin-top: 10px;
+  font-weight: bold;
+  min-width: 120px;
+  font-size: 16px;
 `;

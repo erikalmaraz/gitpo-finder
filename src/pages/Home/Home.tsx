@@ -1,9 +1,10 @@
 import React from "react";
 import UserFinder from "../../components/UserFinder/UserFinder"
+import { WrapperSection} from './Styles'
 function Home() {
   return (
-    <>
-      <div>
+    <React.Fragment>
+      <WrapperSection>
         <div>
           <h1>We gonna love find for you</h1>
           <p>Gitpo give you all info about github user and his repositories.</p>
@@ -11,8 +12,8 @@ function Home() {
         <div>
           <UserFinder />
         </div>
-      </div>
-    </>
+      </WrapperSection>
+    </React.Fragment>
   );
 }
 
