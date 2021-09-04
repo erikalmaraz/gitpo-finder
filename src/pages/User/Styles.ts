@@ -24,3 +24,29 @@ export const FinderContainer = styled.div`
     }
   }
 `;
+
+export const RepositoryOverviewContainer = styled.div`
+  width: 70%;
+  padding-top: 20px;
+  padding-left: 40px;
+`;
+
+export const RepositoryListContainer = styled.div`
+  padding-top: 20px;
+`;
+
+export const TabsContainer = styled.div`
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+`;
+
+export const TabItem = styled.div`
+  max-width: 75px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+  border-bottom: 2px solid #000;
+  padding-bottom: 5px;
+  margin-bottom: -2px;
+  cursor: pointer;
+`;

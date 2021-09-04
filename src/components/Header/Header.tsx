@@ -1,17 +1,17 @@
 import React from "react";
-import { Wrapper, AuthorContainer } from "./Styles";
+import * as S from "./Styles";
 const Header = () => {
   return (
     <>
-      <Wrapper>
+      <S.Wrapper>
         <div>
           <img src="../assets/images/logo-01.png" alt="Logo" />
         </div>
-        <AuthorContainer>
+        <S.AuthorContainer>
           <span>By Erik Almaraz</span>
           <img src="../assets/icons/github-icon.png" alt="Github repo" />
-        </AuthorContainer>
-      </Wrapper>
+        </S.AuthorContainer>
+      </S.Wrapper>
     </>
   );
 };
