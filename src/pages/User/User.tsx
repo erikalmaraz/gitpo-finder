@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import UserFinder from "../../components/UserFinder/UserFinder";
 import RepositoryFinder from "../../components/RepositoryFinder/RepositoryFinder";
 import Repository from "../../components/Repository/Repository";
+import useFetch from "../../hooks/useFetch";
+import { routes } from "../../config/request";
+import { useLocation } from "@reach/router";
+import UserInfo from "../../interfaces/userInfo.interface";
 import * as S from "./Styles";
 
 const User = () => {
+  const location = useLocation();
+  const getUserInfoParams = {
+    url: routes.user,
+    username: location.pathname.split("/")[2],
+    additionalPath: "",
+  };
+  const { response: userInfo, isLoading }: UserInfo =
+    useFetch(getUserInfoParams);
+
+  console.log(userInfo);
   return (
     <>
       <section>
@@ -15,7 +29,12 @@ const User = () => {
         </S.FinderContainer>
         {/* End Search Other User */}
         <S.CenterContainter>
-          <Sidebar />
+          <Sidebar
+            name={userInfo.name}
+            image={userInfo.avatar_url}
+            description={userInfo.bio}
+            username={userInfo.login}
+          />
           {/* Repositories Container */}
           <S.RepositoryOverviewContainer>
             {/* Repositories Tabs */}
@@ -32,8 +51,8 @@ const User = () => {
                 <RepositoryFinder />
               </div>
               <div>
-                {[1, 2, 3].map(() => (
-                  <Repository />
+                {[1, 2, 3].map((index) => (
+                  <Repository key={index} />
                 ))}
               </div>
             </S.RepositoryListContainer>

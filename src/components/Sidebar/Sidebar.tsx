@@ -1,24 +1,22 @@
 import React from "react";
 import Profile from "../../resources/assets/images/profile.jpeg";
 import * as S from "./Styles";
-const Sidebar = () => {
+import SidebarType from "../../interfaces/sidebar.interface";
+
+const Sidebar = ({ name, image, description, username }: SidebarType) => {
   return (
     <React.Fragment>
       <S.MainSidebarWrapper>
         <S.ProfileTopContainer>
           <div>
-            <S.ProfilePicture src={Profile} alt="Profile picture" />
+            <S.ProfilePicture src={image} alt="Profile picture" />
           </div>
           <div>
-            <h3>Ale Ornelas Figueroa</h3>
-            <S.Username>greatelse</S.Username>
+            <h3>{name}</h3>
+            <S.Username>{username}</S.Username>
           </div>
         </S.ProfileTopContainer>
-        <div>
-          Former Devops Engineer at @gitamv Former Software Engineer at
-          @Progressly Former Software Engineer at @magma-labs Former Software
-          Engineer at @zoobean
-        </div>
+        <div>{description}</div>
         <div>Location</div>
       </S.MainSidebarWrapper>
     </React.Fragment>
