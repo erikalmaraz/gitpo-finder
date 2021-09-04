@@ -1,6 +1,6 @@
 import React from "react";
-import UserFinder from "../../components/UserFinder/UserFinder"
-import { WrapperSection} from './Styles'
+import UserFinder from "../../components/UserFinder/UserFinder";
+import { WrapperSection } from "./Styles";
 function Home() {
   return (
     <React.Fragment>

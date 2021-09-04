@@ -1,6 +1,7 @@
-import React from "react";
+import React, { FC } from "react";
 import { Finder, SubmitButton } from "./Styles";
-const UserFinder = () => {
+import props from './interfaces';
+const UserFinder: FC<props> = ({ placeholder }: props) => {
   return (
     <>
       <div>
