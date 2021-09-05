@@ -19,7 +19,7 @@ function App() {
     <>
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
         <GlobalStyles />
-        <Header />
+        <Header themeToggler={themeToggler} />
         <Router>
           <RouterPage path="/" pageComponent={<Home />} />
           <RouterPage path="/user/:username" pageComponent={<User />} />

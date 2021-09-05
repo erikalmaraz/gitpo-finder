@@ -27,3 +27,32 @@ export const AuthorContainer = styled.div`
     margin-right: 12px;
   }
 `;
+
+export const ThemeControllerWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const ToggleSwitchContainer = styled.div`
+  width: 50px;
+  height: 19px;
+  background: ${({ theme }) => (theme === "light" ? "#fff" : "#000")};
+  border: 2px solid #ddd;
+  border-radius: 21px;
+  position: relative;
+  margin-left: 20px;
+  align-items: center;
+  cursor: pointer;
+`;
+
+export const CircleToggleSwitch = styled.span`
+  height: 13px;
+  width: 13px;
+  background: ${({ theme }) => (theme === "light" ? "#444" : "#fff")};
+  display: block;
+  border-radius: 100%;
+  position: absolute;
+  bottom: 1px;
+  left: ${({ theme }) => (theme === "light" ? "2px" : "30px")};
+  transition: all 0.3s ease;
+`;
