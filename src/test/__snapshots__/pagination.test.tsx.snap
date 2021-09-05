@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render Pagination correctly 1`] = `
+<div
+  className="sc-bdfBQB iUljAX"
+>
+  <div
+    className="sc-gsTEea jmguBT"
+  >
+    We found 
+    2
+     repos.
+  </div>
+  <div
+    className="sc-dlfnuX eFAgps"
+  >
+    <button
+      className="sc-hKgJUU jWqXDM"
+      onClick={[Function]}
+    >
+      Prev
+    </button>
+    <button
+      className="sc-hKgJUU jWqXDM"
+      onClick={[Function]}
+    >
+      Next
+    </button>
+  </div>
+</div>
+`;

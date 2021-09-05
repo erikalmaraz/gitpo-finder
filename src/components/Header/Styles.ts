@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 export const Wrapper = styled.section`
@@ -10,6 +9,7 @@ export const Wrapper = styled.section`
   z-index: 9;
   position: relative;
   img {
+    cursor: pointer;
     &:nth-child(1) {
       width: 110px;
     }

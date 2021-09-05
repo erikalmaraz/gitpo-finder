@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render Loader correctly 1`] = `
+<section
+  className="sc-bdfBQB cOWHBm"
+>
+  <img
+    alt="Loader"
+    className="sc-gsTEea eEgHGY"
+    src="loader.gif"
+  />
+</section>
+`;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import HeaderType from "../../interfaces/header.interfaces";
+import { Link } from "@reach/router";
 import * as S from "./Styles";
 const Header = ({ themeToggler }: HeaderType) => {
   const [theme, setTheme] = useState("light");
@@ -18,7 +19,9 @@ const Header = ({ themeToggler }: HeaderType) => {
     <React.Fragment>
       <S.Wrapper>
         <div>
-          <img src="../assets/images/logo-01.png" alt="Logo" />
+          <Link to="/">
+            <img src="../assets/images/logo-01.png" alt="Logo" />
+          </Link>
         </div>
         <S.ThemeControllerWrapper>
           <S.AuthorContainer>

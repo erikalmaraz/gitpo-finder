@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render Loader correctly 1`] = `
+<section
+  className="sc-bdfBQB joztvB"
+>
+  <div>
+    <a
+      aria-current="page"
+      href="/"
+      onClick={[Function]}
+    >
+      <img
+        alt="Logo"
+        src="../assets/images/logo-01.png"
+      />
+    </a>
+  </div>
+  <div
+    className="sc-dlfnuX hnnDGO"
+  >
+    <div
+      className="sc-gsTEea bPVsIV"
+    >
+      <span>
+        By Erik Almaraz
+      </span>
+      <img
+        alt="Github repo"
+        src="../assets/icons/github-icon.png"
+      />
+    </div>
+    <div
+      className="sc-hKgJUU bzhxfT"
+      onClick={[Function]}
+    >
+      <span
+        className="sc-eCstlR jEXLEy"
+      />
+    </div>
+  </div>
+</section>
+`;

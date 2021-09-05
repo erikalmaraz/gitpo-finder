@@ -55,7 +55,7 @@ const User = () => {
   // Start pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsToSplice, setitemsToSplice] = useState(0);
-  const itemsToShow = 3;
+  const itemsToShow = 5;
   const nextPage = () => {
     const totalPages = Math.ceil(userRepos.length / itemsToShow);
     const isMaxPagesNotAchive = currentPage < totalPages;

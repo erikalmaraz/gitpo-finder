@@ -1,7 +1,7 @@
 import React from "react";
 import PaginationType from "../../interfaces/pagination.interface";
 import * as S from "./Styles";
-const Pagination = ({ totalItems, showing, nextPage, prevPage }: PaginationType) => {
+const Pagination = ({ totalItems, nextPage, prevPage }: PaginationType) => {
   return (
     <React.Fragment>
       <S.PaginationContainer>

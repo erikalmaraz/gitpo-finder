@@ -16,6 +16,8 @@ const UserFinder: FC<props> = ({ placeholder }: props) => {
           onChange={(e) => {
             setUsername(e.target.value);
           }}
+          type="text"
+          placeholder="Type a username..."
         />
       </div>
       <div>

@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render RepositoryFilters correctly 1`] = `
+<div
+  className="sc-bdfBQB iGQBOf"
+>
+  <div
+    className="sc-gsTEea hrfbDQ"
+  >
+    <input
+      className="sc-dlfnuX jjmibv"
+      onChange={[Function]}
+      placeholder="Type a repo name..."
+      type="text"
+    />
+  </div>
+  <div>
+    <select
+      className="sc-hKgJUU dvWOdP"
+      onChange={[Function]}
+    >
+      <option
+        value=""
+      >
+        Language
+      </option>
+      <option
+        value=""
+      >
+        All
+      </option>
+      <option
+        value="javascript"
+      >
+        JavaScript
+      </option>
+    </select>
+  </div>
+  <div>
+    <select
+      className="sc-hKgJUU dvWOdP"
+    >
+      <option
+        value=""
+      >
+        Type
+      </option>
+      <option
+        value=""
+      >
+        All
+      </option>
+      <option
+        value=""
+      >
+        Fork
+      </option>
+      <option
+        value=""
+      >
+        Archive
+      </option>
+      <option
+        value=""
+      >
+        Source
+      </option>
+    </select>
+  </div>
+</div>
+`;
+
+exports[`Should render UserFinder correctly 1`] = `
+Array [
+  <div>
+    <input
+      className="sc-bdfBQB kVKBGV"
+      onChange={[Function]}
+      placeholder="Type a username..."
+      type="text"
+    />
+  </div>,
+  <div>
+    <button
+      className="sc-gsTEea ckPYpT"
+      onClick={[Function]}
+      type="submit"
+    >
+      Go!
+    </button>
+  </div>,
+]
+`;

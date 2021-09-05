@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
-export const Finder = styled.input.attrs({
-  type: "text",
-  placeholder: "Type a username..."
-})`
+export const Finder = styled.input`
   width: 100%;
   max-width: 600px;
   border-radius: 6px;
