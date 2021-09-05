@@ -2,10 +2,7 @@ import React from "react";
 import * as S from "./Styles";
 import RepositoryFiltersType from "../../interfaces/repositoryFilters.interface";
 
-const RepositoryFilters = ({
-  filterByName,
-  filterByLanguage,
-}: RepositoryFiltersType) => {
+const RepositoryFilters = ({ setSearchByName, setSearchByType }: RepositoryFiltersType) => {
   return (
     <>
       <S.FiltersContainer>
@@ -13,11 +10,11 @@ const RepositoryFilters = ({
           <S.SearchRepositoryInput
             type="text"
             placeholder="Type a repo name..."
-            onChange={(e) => filterByName(e.target.value)}
+            onChange={(e) => setSearchByName(e.target.value)}
           />
         </S.SearchRepositoryContainer>
         <div>
-          <S.SelectFilter onChange={(e) => filterByLanguage(e.target.value)}>
+          <S.SelectFilter onChange={(e) => setSearchByType(e.target.value)}>
             <option value="">Language</option>
             <option value="">All</option>
             <option value="javascript">JavaScript</option>

@@ -30,26 +30,35 @@ const User = () => {
     useFetch(getUserRepoParams);
   const [userRepos, setUserRepos] = useState([]);
 
-  useEffect(() => {
-    setUserRepos(reposReponse);
-  }, [reposReponse]);
   // End API request
 
   // Start filters
+
   const filterByName = (name: string) => {
-    const optionsThatHasSelectedName: any = reposReponse.filter((item: any) =>
-      item.name.includes(name)
-    );
-    setUserRepos(optionsThatHasSelectedName);
+    return userRepos.filter((item: any) => item.name.includes(name));
   };
 
   const filterByLanguage = (language: string) => {
-    console.log(language);
-    const optionsThatHasSelectedName: any = userRepos.filter(
-      (item: any) =>
-        item.language && item.language.toLowerCase().includes(language)
-    );
-    setUserRepos(optionsThatHasSelectedName);
+    return userRepos.filter((item: any) => {
+      if (item.language && language !== "") {
+        return item.language.toLowerCase().includes(language);
+      }
+    });
+  };
+
+  const [searchByName, setSearchByName] = useState("");
+  const [searchByType, setSearchByType] = useState("");
+
+  const applyFilters = () => {
+    let filteredArray;
+    if (searchByName !== "") {
+      filteredArray = filterByName(searchByName);
+    }
+    if (searchByType !== "") {
+      filteredArray = filterByLanguage(searchByType);
+    }
+    if(filteredArray)
+      setUserRepos(filteredArray);
   };
   // End filters
   // Start pagination
@@ -74,6 +83,14 @@ const User = () => {
   };
   // End pagination
 
+  useEffect(() => {
+    setUserRepos(reposReponse);
+  }, [reposReponse, searchByName, searchByType]);
+
+  useEffect(() => {
+    applyFilters();
+  }, [searchByName, searchByType]);
+
   return (
     <>
       <section>
@@ -97,8 +114,8 @@ const User = () => {
             <S.RepositoryListContainer>
               <div>
                 <RepositoryFilters
-                  filterByLanguage={filterByLanguage}
-                  filterByName={filterByName}
+                  setSearchByName={setSearchByName}
+                  setSearchByType={setSearchByType}
                 />
               </div>
               <div>

@@ -1,5 +1,4 @@
 export default interface RepositoryFiltersType {
-  filterByName: (name: string) => void;
-  filterByLanguage: (language: string) => void;
+  setSearchByName: (name: string) => void;
+  setSearchByType: (type: string) => void;
 }
-
