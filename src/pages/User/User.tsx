@@ -116,7 +116,6 @@ const User = () => {
               </div>
               <Pagination
                 totalItems={userRepos.length}
-                showing={itemsToSplice + itemsToShow}
                 nextPage={nextPage}
                 prevPage={prevPage}
               />

@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import Pagination from "../components/Pagination/Pagination";
 import renderer from "react-test-renderer";
 
-it("Should render Pagination correctly", () => {
+test("Should render Pagination correctly", () => {
   const props = {
     totalItems: 2,
     nextPage: jest.fn,

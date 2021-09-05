@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import Header from "../components/Header/Header";
 import renderer from "react-test-renderer";
 
-it("Should render Loader correctly", () => {
+test("Should render Loader correctly", () => {
   const props = {
     themeToggler: jest.fn,
   };

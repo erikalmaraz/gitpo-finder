@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import Repository from "../components/Repository/Repository";
 import renderer from "react-test-renderer";
 
-it("Should render Repository correctly", () => {
+test("Should render Repository correctly", () => {
   const props = {
     name: "Repository name",
     description: "Repository desc",
