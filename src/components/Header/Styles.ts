@@ -7,6 +7,8 @@ export const Wrapper = styled.section`
   min-height: 70px;
   align-items: center;
   padding: 0 50px;
+  z-index: 9;
+  position: relative;
   img {
     &:nth-child(1) {
       width: 110px;
@@ -21,7 +23,7 @@ export const AuthorContainer = styled.div`
   display: flex;
   align-items: center;
   font-size: 13px;
-  span{
+  span {
     margin-right: 12px;
   }
 `;

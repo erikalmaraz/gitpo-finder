@@ -6,11 +6,13 @@ import Repository from "../../components/Repository/Repository";
 import Pagination from "../../components/Pagination/Pagination";
 import useFetch from "../../hooks/useFetch";
 import UserInfo from "../../interfaces/userInfo.interface";
+import Loader from "../../components/Loader/Loader";
 import { routes } from "../../config/request";
 import { useLocation } from "@reach/router";
 import * as S from "./Styles";
 
 const User = () => {
+  // Start API request
   const location = useLocation();
   const getUserInfoParams = {
     url: routes.user,
@@ -31,6 +33,7 @@ const User = () => {
   useEffect(() => {
     setUserRepos(reposReponse);
   }, [reposReponse]);
+  // End API request
 
   // Start filters
   const filterByName = (name: string) => {
@@ -50,15 +53,24 @@ const User = () => {
   };
   // End filters
   // Start pagination
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsToSplice, setitemsToSplice] = useState(0);
+  const itemsToShow = 3;
   const nextPage = () => {
-    console.log("Next page");
-    setCurrentPage(currentPage + 5);
+    const totalPages = Math.ceil(userRepos.length / itemsToShow);
+    const isMaxPagesNotAchive = currentPage < totalPages;
+    if (isMaxPagesNotAchive) {
+      setCurrentPage(currentPage + 1);
+      setitemsToSplice(itemsToSplice + itemsToShow);
+    }
   };
 
   const prevPage = () => {
-    console.log("Next page");
-    setCurrentPage(currentPage - 5);
+    const isCurrentPageZero = currentPage === 1;
+    if (!isCurrentPageZero) {
+      setCurrentPage(currentPage - 1);
+      setitemsToSplice(itemsToSplice - itemsToShow);
+    }
   };
   // End pagination
 
@@ -90,10 +102,9 @@ const User = () => {
                 />
               </div>
               <div>
-                <p>We found {userRepos.length} for this user.</p>
                 {!isReposLoading &&
                   userRepos
-                    .slice(currentPage, currentPage + 5)
+                    .slice(itemsToSplice, itemsToSplice + itemsToShow)
                     .map((repo: any, index: number) => (
                       <Repository
                         name={repo.name}
@@ -105,7 +116,7 @@ const User = () => {
               </div>
               <Pagination
                 totalItems={userRepos.length}
-                showing={currentPage + 5}
+                showing={itemsToSplice + itemsToShow}
                 nextPage={nextPage}
                 prevPage={prevPage}
               />
@@ -113,6 +124,7 @@ const User = () => {
           </S.RepositoryOverviewContainer>
         </S.CenterContainter>
       </section>
+      {(isInfoLoading || isReposLoading) && <Loader />}
     </>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./Styles";
 const Header = () => {
   return (
-    <>
+    <React.Fragment>
       <S.Wrapper>
         <div>
           <img src="../assets/images/logo-01.png" alt="Logo" />
@@ -12,7 +12,7 @@ const Header = () => {
           <img src="../assets/icons/github-icon.png" alt="Github repo" />
         </S.AuthorContainer>
       </S.Wrapper>
-    </>
+    </React.Fragment>
   );
 };
 
