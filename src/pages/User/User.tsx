@@ -16,10 +16,19 @@ const User = () => {
     username: location.pathname.split("/")[2],
     additionalPath: "",
   };
-  const { response: userInfo, isLoading }: UserInfo =
+  const getUserRepoParams = {
+    url: routes.user,
+    username: location.pathname.split("/")[2],
+    additionalPath: "repos",
+  };
+
+  const { response: userInfo, isLoading: isInfoLoading }: UserInfo =
     useFetch(getUserInfoParams);
 
-  console.log(userInfo);
+  const { response: userRepos, isLoading: isReposLoading }: UserInfo =
+    useFetch(getUserRepoParams);
+
+  console.log(userRepos, " user repos");
   return (
     <>
       <section>
@@ -51,9 +60,11 @@ const User = () => {
                 <RepositoryFinder />
               </div>
               <div>
-                {[1, 2, 3].map((index) => (
-                  <Repository key={index} />
-                ))}
+                {isReposLoading}
+                {!isReposLoading &&
+                  userRepos.map((repo: any, index: number) => (
+                    <Repository name={repo.name} description={repo.description} language={repo.language} key={index} />
+                  ))}
               </div>
             </S.RepositoryListContainer>
             {/* Repository List */}

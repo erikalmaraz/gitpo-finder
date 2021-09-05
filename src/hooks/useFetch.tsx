@@ -9,8 +9,9 @@ const useFetch = ({ url, username, additionalPath }: UseFetch) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      additionalPath = additionalPath !== '' ? `/${additionalPath}` : ''
-      axios
+      additionalPath = additionalPath !== "" ? `/${additionalPath}` : "";
+      setIsLoading(true);
+      await axios
         .get(`${url}/${username}${additionalPath}`)
         .then((res) => {
           setResponse(res.data);
@@ -18,6 +19,7 @@ const useFetch = ({ url, username, additionalPath }: UseFetch) => {
         })
         .catch((err) => {
           setError(err);
+          setIsLoading(false);
         });
     };
 
@@ -25,7 +27,6 @@ const useFetch = ({ url, username, additionalPath }: UseFetch) => {
   }, [url, username, additionalPath]);
 
   return { response, isLoading, error };
-
 };
 
 export default useFetch;
