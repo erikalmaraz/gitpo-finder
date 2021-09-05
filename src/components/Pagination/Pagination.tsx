@@ -1,0 +1,18 @@
+import React from "react";
+import PaginationType from "../../interfaces/pagination.interface";
+import * as S from "./Styles";
+const Pagination = ({ totalItems, showing, nextPage, prevPage }: PaginationType) => {
+  return (
+    <React.Fragment>
+      <S.PaginationContainer>
+        <S.PaginationMessage>Showing {showing} repos of {totalItems}.</S.PaginationMessage>
+        <S.PaginationControllers>
+          <S.ButtonControllers onClick={prevPage}>Prev</S.ButtonControllers>
+          <S.ButtonControllers onClick={nextPage}>Next</S.ButtonControllers>
+        </S.PaginationControllers>
+      </S.PaginationContainer>
+    </React.Fragment>
+  );
+};
+
+export default Pagination;

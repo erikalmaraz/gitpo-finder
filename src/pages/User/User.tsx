@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import UserFinder from "../../components/UserFinder/UserFinder";
-import RepositoryFinder from "../../components/RepositoryFinder/RepositoryFinder";
+import RepositoryFilters from "../../components/RepositoryFilters/RepositoryFilters";
 import Repository from "../../components/Repository/Repository";
+import Pagination from "../../components/Pagination/Pagination";
 import useFetch from "../../hooks/useFetch";
+import UserInfo from "../../interfaces/userInfo.interface";
 import { routes } from "../../config/request";
 import { useLocation } from "@reach/router";
-import UserInfo from "../../interfaces/userInfo.interface";
 import * as S from "./Styles";
 
 const User = () => {
@@ -21,22 +22,52 @@ const User = () => {
     username: location.pathname.split("/")[2],
     additionalPath: "repos",
   };
-
   const { response: userInfo, isLoading: isInfoLoading }: UserInfo =
     useFetch(getUserInfoParams);
-
-  const { response: userRepos, isLoading: isReposLoading }: UserInfo =
+  const { response: reposReponse, isLoading: isReposLoading }: UserInfo =
     useFetch(getUserRepoParams);
+  const [userRepos, setUserRepos] = useState([]);
 
-  console.log(userRepos, " user repos");
+  useEffect(() => {
+    setUserRepos(reposReponse);
+  }, [reposReponse]);
+
+  // Start filters
+  const filterByName = (name: string) => {
+    const optionsThatHasSelectedName: any = reposReponse.filter((item: any) =>
+      item.name.includes(name)
+    );
+    setUserRepos(optionsThatHasSelectedName);
+  };
+
+  const filterByLanguage = (language: string) => {
+    console.log(language);
+    const optionsThatHasSelectedName: any = userRepos.filter(
+      (item: any) =>
+        item.language && item.language.toLowerCase().includes(language)
+    );
+    setUserRepos(optionsThatHasSelectedName);
+  };
+  // End filters
+  // Start pagination
+  const [currentPage, setCurrentPage] = useState(0);
+  const nextPage = () => {
+    console.log("Next page");
+    setCurrentPage(currentPage + 5);
+  };
+
+  const prevPage = () => {
+    console.log("Next page");
+    setCurrentPage(currentPage - 5);
+  };
+  // End pagination
+
   return (
     <>
       <section>
-        {/* Search Other User */}
         <S.FinderContainer>
           <UserFinder />
         </S.FinderContainer>
-        {/* End Search Other User */}
         <S.CenterContainter>
           <Sidebar
             name={userInfo.name}
@@ -44,32 +75,42 @@ const User = () => {
             description={userInfo.bio}
             username={userInfo.login}
           />
-          {/* Repositories Container */}
           <S.RepositoryOverviewContainer>
-            {/* Repositories Tabs */}
             <S.TabsContainer>
               <S.TabItem>
                 <span></span>
                 <span>Overview</span>
               </S.TabItem>
             </S.TabsContainer>
-            {/* End Repositories Tabs */}
-            {/* Repository List */}
             <S.RepositoryListContainer>
               <div>
-                <RepositoryFinder />
+                <RepositoryFilters
+                  filterByLanguage={filterByLanguage}
+                  filterByName={filterByName}
+                />
               </div>
               <div>
-                {isReposLoading}
+                <p>We found {userRepos.length} for this user.</p>
                 {!isReposLoading &&
-                  userRepos.map((repo: any, index: number) => (
-                    <Repository name={repo.name} description={repo.description} language={repo.language} key={index} />
-                  ))}
+                  userRepos
+                    .slice(currentPage, currentPage + 5)
+                    .map((repo: any, index: number) => (
+                      <Repository
+                        name={repo.name}
+                        description={repo.description}
+                        language={repo.language}
+                        key={repo.id}
+                      />
+                    ))}
               </div>
+              <Pagination
+                totalItems={userRepos.length}
+                showing={currentPage + 5}
+                nextPage={nextPage}
+                prevPage={prevPage}
+              />
             </S.RepositoryListContainer>
-            {/* Repository List */}
           </S.RepositoryOverviewContainer>
-          {/* End Repositories Container */}
         </S.CenterContainter>
       </section>
     </>
