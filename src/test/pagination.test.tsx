@@ -8,6 +8,7 @@ test("Should render Pagination correctly", () => {
     totalItems: 2,
     nextPage: jest.fn,
     prevPage: jest.fn,
+    theme: "light"
   };
   const tree = renderer.create(<Pagination {...props} />).toJSON();
   expect(tree).toMatchSnapshot();

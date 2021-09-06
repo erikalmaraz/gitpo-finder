@@ -15,7 +15,7 @@ export const SearchRepositoryContainer = styled.div`
 export const SearchRepositoryInput = styled.input`
   width: 100%;
   border-radius: 6px;
-  border: 1px solid #999;
+  border: 1px solid #f9f9f9;
   padding: 10px;
   margin: 10px 0;
   background: ${({ theme }) => (theme === "light" ? "#ddd" : "#f9f9f9")};

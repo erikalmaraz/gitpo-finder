@@ -2,7 +2,11 @@ import React from "react";
 import * as S from "./Styles";
 import RepositoryFiltersType from "../../interfaces/repositoryFilters.interface";
 
-const RepositoryFilters = ({ setSearchByName, setSearchByType, theme }: RepositoryFiltersType) => {
+const RepositoryFilters = ({
+  setSearchByName,
+  setSearchByType,
+  theme,
+}: RepositoryFiltersType) => {
   return (
     <>
       <S.FiltersContainer>
@@ -19,6 +23,15 @@ const RepositoryFilters = ({ setSearchByName, setSearchByType, theme }: Reposito
             <option value="">Language</option>
             <option value="">All</option>
             <option value="javascript">JavaScript</option>
+            <option value="html">HTML</option>
+            <option value="typescript">TypeScript</option>
+            <option value="python">Python</option>
+            <option value="css">CSS</option>
+            <option value="c#">C#</option>
+            <option value="elixir">Elixir</option>
+            <option value="rust">Rust</option>
+            <option value="java">Java</option>
+            <option value="r">R</option>
           </S.SelectFilter>
         </div>
         <div>

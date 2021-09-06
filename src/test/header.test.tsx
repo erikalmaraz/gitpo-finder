@@ -6,6 +6,7 @@ import renderer from "react-test-renderer";
 test("Should render Loader correctly", () => {
   const props = {
     themeToggler: jest.fn,
+    currentTheme: "light",
   };
   const tree = renderer.create(<Header {...props} />).toJSON();
   expect(tree).toMatchSnapshot();

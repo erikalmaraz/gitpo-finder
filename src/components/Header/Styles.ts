@@ -44,7 +44,6 @@ export const ToggleSwitchContainer = styled.div`
   border: 2px solid #ddd;
   border-radius: 21px;
   position: relative;
-  margin-left: 20px;
   align-items: center;
   cursor: pointer;
 `;
@@ -59,4 +58,12 @@ export const CircleToggleSwitch = styled.span`
   bottom: 1px;
   left: ${({ theme }) => (theme === "light" ? "2px" : "30px")};
   transition: all 0.3s ease;
+`;
+
+export const SwitchThemeWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100px;
+  margin-left: 20px;
+  justify-content: space-between;
 `;

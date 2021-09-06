@@ -1,23 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Should render UserFinder correctly 1`] = `
-Array [
+<form
+  className="sc-bdfBQB dHwVHg"
+>
   <div>
     <input
-      className="sc-bdfBQB kVKBGV"
+      className="sc-gsTEea cPFUhi"
       onChange={[Function]}
       placeholder="Type a username..."
       type="text"
     />
-  </div>,
+  </div>
   <div>
     <button
-      className="sc-gsTEea ckPYpT"
+      className="sc-dlfnuX dRlPXT"
       onClick={[Function]}
       type="submit"
     >
       Go!
     </button>
-  </div>,
-]
+  </div>
+</form>
 `;

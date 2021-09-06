@@ -15,13 +15,13 @@ exports[`Should render Pagination correctly 1`] = `
     className="sc-dlfnuX eFAgps"
   >
     <button
-      className="sc-hKgJUU jWqXDM"
+      className="sc-hKgJUU kWBnnj"
       onClick={[Function]}
     >
       Prev
     </button>
     <button
-      className="sc-hKgJUU jWqXDM"
+      className="sc-hKgJUU kWBnnj"
       onClick={[Function]}
     >
       Next

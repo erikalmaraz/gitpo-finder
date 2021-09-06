@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import HeaderType from "../../interfaces/header.interfaces";
 import { Link } from "@reach/router";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as S from "./Styles";
+
+library.add(fas);
+
 const Header = ({ themeToggler, currentTheme }: HeaderType) => {
   const [theme, setTheme] = useState(currentTheme);
 
@@ -31,9 +37,13 @@ const Header = ({ themeToggler, currentTheme }: HeaderType) => {
               alt="Github repo"
             />
           </S.AuthorContainer>
-          <S.ToggleSwitchContainer onClick={toggleTheme} theme={theme}>
-            <S.CircleToggleSwitch theme={theme}></S.CircleToggleSwitch>
-          </S.ToggleSwitchContainer>
+          <S.SwitchThemeWrapper>
+            <FontAwesomeIcon icon="sun" />
+            <S.ToggleSwitchContainer onClick={toggleTheme} theme={theme}>
+              <S.CircleToggleSwitch theme={theme}></S.CircleToggleSwitch>
+            </S.ToggleSwitchContainer>
+            <FontAwesomeIcon icon="moon" />
+          </S.SwitchThemeWrapper>
         </S.ThemeControllerWrapper>
       </S.Wrapper>
     </React.Fragment>

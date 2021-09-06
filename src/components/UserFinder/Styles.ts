@@ -1,12 +1,19 @@
 import styled from "styled-components";
 
-export const Finder = styled.input`
+export const FormContainer = styled.form`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+export const Finder = styled.input<{ theme: string; isValidForm: boolean }>`
   width: 100%;
   max-width: 600px;
   border-radius: 6px;
   border: 1px solid #999;
   padding: 10px;
   margin: 10px 0;
+  border: 1px solid ${({ isValidForm }) => (!isValidForm ? "#f00" : "#f9f9f9")};
   background: ${({ theme }) => (theme === "light" ? "#ddd" : "#f9f9f9")};
 `;
 

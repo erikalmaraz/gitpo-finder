@@ -2,12 +2,12 @@
 
 exports[`Should render Loader correctly 1`] = `
 <section
-  className="sc-bdfBQB cOWHBm"
+  className="sc-bdfBQB fguEFV"
 >
   <img
     alt="Loader"
-    className="sc-gsTEea eEgHGY"
-    src="loader.gif"
+    className="sc-gsTEea hxkLSY"
+    src="logo-01.png"
   />
 </section>
 `;

@@ -8,11 +8,13 @@ test("Should render RepositoryFilters correctly", () => {
     filterByName: jest.fn(),
     filterByLanguage: jest.fn(),
   };
+  const theme = "light";
   const tree = renderer
     .create(
       <RepositoryFilters
-        filterByName={props.filterByName}
-        filterByLanguage={props.filterByLanguage}
+        setSearchByName={props.filterByName}
+        setSearchByType={props.filterByLanguage}
+        theme={theme}
       />
     )
     .toJSON();

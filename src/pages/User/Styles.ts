@@ -20,7 +20,6 @@ export const FinderContainer = styled.div`
       width: 50%;
     }
     &:nth-child(2) {
-      width: 200px;
       margin-left: 10px;
     }
   }

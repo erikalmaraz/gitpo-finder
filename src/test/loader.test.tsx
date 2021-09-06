@@ -4,6 +4,9 @@ import Loader from "../components/Loader/Loader";
 import renderer from "react-test-renderer";
 
 test("Should render Loader correctly", () => {
-  const tree = renderer.create(<Loader />).toJSON();
+  const props = {
+    theme: "light"
+  }
+  const tree = renderer.create(<Loader {...props} />).toJSON();
   expect(tree).toMatchSnapshot();
 });

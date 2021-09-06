@@ -64,9 +64,6 @@ const User = ({ theme }: UserType) => {
     if (searchByName !== "") {
       filteredArray = filterByName(searchByName);
     }
-    if (searchByType !== "") {
-      filteredArray = filterByLanguage(searchByType);
-    }
     if (filteredArray) setUserRepos(filteredArray);
   };
   // End filters

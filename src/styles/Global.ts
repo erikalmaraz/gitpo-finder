@@ -20,16 +20,23 @@ const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
     cursor: pointer;
   }
   h1 {
-    font-size: 2.5em;
+    font-size: 2.5rem;
   }
   h3{
-    font-size: 1.78em;
+    font-size: 1.78rem;
   }
   p{
     margin: 8px;
     font-size: 15px;
   }
-
+  @media screen and (max-width: 768px){
+    h1{
+      font-size: 2rem;
+    }
+    p{
+      font-size: 13px;
+    }
+  }
 `;
 
 export default GlobalStyles;
