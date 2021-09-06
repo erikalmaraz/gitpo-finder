@@ -57,14 +57,13 @@ const User = () => {
     if (searchByType !== "") {
       filteredArray = filterByLanguage(searchByType);
     }
-    if(filteredArray)
-      setUserRepos(filteredArray);
+    if (filteredArray) setUserRepos(filteredArray);
   };
   // End filters
   // Start pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsToSplice, setitemsToSplice] = useState(0);
-  const itemsToShow = 5;
+  let itemsToShow = 5;
   const nextPage = () => {
     const totalPages = Math.ceil(userRepos.length / itemsToShow);
     const isMaxPagesNotAchive = currentPage < totalPages;
@@ -89,6 +88,8 @@ const User = () => {
 
   useEffect(() => {
     applyFilters();
+    itemsToShow = 5;
+    setitemsToSplice(0);
   }, [searchByName, searchByType]);
 
   return (
