@@ -147,7 +147,9 @@ const User = () => {
             </S.RepositoryOverviewContainer>
           </S.CenterContainter>
         ) : (
-          <S.UserWasntFound>User wasn't found, please try with another.</S.UserWasntFound>
+          <S.UserWasntFound>
+            User wasn't found, please try with another.
+          </S.UserWasntFound>
         )}
       </section>
       {(isInfoLoading || isReposLoading) && <Loader />}

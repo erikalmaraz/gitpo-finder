@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Router, RouteComponentProps, Link } from "@reach/router";
 import GlobalStyles from "./styles/Global";
 import { ThemeProvider } from "styled-components";
@@ -10,11 +10,19 @@ import Home from "./pages/Home/Home";
 import User from "./pages/User/User";
 
 function App() {
-  const [theme, setTheme] = useState("light");
+  const savedTheme = localStorage.getItem("theme");
+  const themeMemoized = savedTheme ? savedTheme : "light";
+  const [theme, setTheme] = useState(themeMemoized);
+  console.log(theme, " Theme");
+
   const themeToggler = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
   };
 
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+  
   return (
     <>
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
