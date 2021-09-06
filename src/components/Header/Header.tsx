@@ -2,17 +2,12 @@ import React, { useState } from "react";
 import HeaderType from "../../interfaces/header.interfaces";
 import { Link } from "@reach/router";
 import * as S from "./Styles";
-const Header = ({ themeToggler }: HeaderType) => {
-  const [theme, setTheme] = useState("light");
+const Header = ({ themeToggler, currentTheme }: HeaderType) => {
+  const [theme, setTheme] = useState(currentTheme);
 
   const toggleTheme = () => {
-    const isLigthThemeSelected = theme === "light";
+    theme === "light" ? setTheme("dark") : setTheme("light");
     themeToggler();
-    if (isLigthThemeSelected) {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
   };
 
   return (
@@ -20,13 +15,13 @@ const Header = ({ themeToggler }: HeaderType) => {
       <S.Wrapper>
         <div>
           <Link to="/">
-            <img src="../assets/images/logo-01.png" alt="Logo" />
+            <S.ImageTheme theme={theme} src="../assets/images/logo-01.png" alt="Logo" />
           </Link>
         </div>
         <S.ThemeControllerWrapper>
           <S.AuthorContainer>
-            <span>By Erik Almaraz</span>
-            <img src="../assets/icons/github-icon.png" alt="Github repo" />
+            <span>By Erik Almaraz </span>
+            <S.ImageTheme theme={theme} src="../assets/icons/github-icon.png" alt="Github repo" />
           </S.AuthorContainer>
           <S.ToggleSwitchContainer onClick={toggleTheme} theme={theme}>
             <S.CircleToggleSwitch theme={theme}></S.CircleToggleSwitch>

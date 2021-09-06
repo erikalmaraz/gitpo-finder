@@ -1,7 +1,8 @@
 import React from "react";
 import UserFinder from "../../components/UserFinder/UserFinder";
+import HomeType from "../../interfaces/home.interface";
 import { WrapperSection } from "./Styles";
-function Home() {
+function Home({ theme }: HomeType) {
   return (
     <React.Fragment>
       <WrapperSection>
@@ -10,7 +11,7 @@ function Home() {
           <p>Gitpo give you all info about github user and his repositories.</p>
         </div>
         <div>
-          <UserFinder />
+          <UserFinder theme={theme} />
         </div>
       </WrapperSection>
     </React.Fragment>

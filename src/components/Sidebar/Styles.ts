@@ -13,7 +13,6 @@ export const ProfileTopContainer = styled.div`
 
 export const Username = styled.p`
   margin: 2px 0;
-  color: #000;
   font-size: 19px;
 `;
 

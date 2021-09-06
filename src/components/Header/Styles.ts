@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const ImageTheme = styled.img`
+  filter: ${({ theme }) => (theme === "light" ? "none" : "invert(1)")};
+`;
+
 export const Wrapper = styled.section`
   display: flex;
   justify-content: space-between;

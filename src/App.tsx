@@ -22,15 +22,18 @@ function App() {
   useEffect(() => {
     localStorage.setItem("theme", theme);
   }, [theme]);
-  
+
   return (
     <>
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
         <GlobalStyles />
-        <Header themeToggler={themeToggler} />
+        <Header themeToggler={themeToggler} currentTheme={theme} />
         <Router>
-          <RouterPage path="/" pageComponent={<Home />} />
-          <RouterPage path="/user/:username" pageComponent={<User />} />
+          <RouterPage path="/" pageComponent={<Home theme={theme} />} />
+          <RouterPage
+            path="/user/:username"
+            pageComponent={<User theme={theme} />}
+          />
         </Router>
       </ThemeProvider>
     </>

@@ -41,14 +41,20 @@ export const TabsContainer = styled.div`
 `;
 
 export const TabItem = styled.div`
-  max-width: 75px;
+  max-width: 125px;
   text-align: center;
   font-weight: bold;
   font-size: 1rem;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid ${({ theme }) => (theme === "light" ? "#000" : "#fff")};
   padding-bottom: 5px;
   margin-bottom: -2px;
   cursor: pointer;
+  display: flex;
+`;
+
+export const TabItemIcon = styled.span`
+  margin-right: 10px;
+  color: ${({ theme }) => (theme === "light" ? "#000" : "#fff")};
 `;
 
 export const UserWasntFound = styled.div`

@@ -7,11 +7,17 @@ import Pagination from "../../components/Pagination/Pagination";
 import useFetch from "../../hooks/useFetch";
 import UserInfo from "../../interfaces/userInfo.interface";
 import Loader from "../../components/Loader/Loader";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { routes } from "../../config/request";
 import { useLocation } from "@reach/router";
+import UserType from "../../interfaces/user.interface";
 import * as S from "./Styles";
 
-const User = () => {
+library.add(fas);
+
+const User = ({ theme }: UserType) => {
   // Start API request
   const location = useLocation();
   const getUserInfoParams = {
@@ -101,7 +107,7 @@ const User = () => {
     <>
       <section>
         <S.FinderContainer>
-          <UserFinder />
+          <UserFinder theme={theme} />
         </S.FinderContainer>
         {userWasFound && !userErr ? (
           <S.CenterContainter>
@@ -113,8 +119,10 @@ const User = () => {
             />
             <S.RepositoryOverviewContainer>
               <S.TabsContainer>
-                <S.TabItem>
-                  <span></span>
+                <S.TabItem theme={theme}>
+                  <S.TabItemIcon theme={theme}>
+                    <FontAwesomeIcon icon="book-open" />
+                  </S.TabItemIcon>
                   <span>Overview</span>
                 </S.TabItem>
               </S.TabsContainer>

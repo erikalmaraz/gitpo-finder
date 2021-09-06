@@ -7,14 +7,12 @@ export const Finder = styled.input`
   border: 1px solid #999;
   padding: 10px;
   margin: 10px 0;
-  background: #ddd;
+  background: ${({ theme }) => (theme === "light" ? "#ddd" : "#f9f9f9")};
 `;
 
-export const SubmitButton = styled.button.attrs({
-  type: "submit",
-})`
-  background: #333;
-  color: #fff;
+export const SubmitButton = styled.button`
+  background: ${({ theme }) => (theme === "light" ? "#333" : "#fff")};
+  color: ${({ theme }) => (theme === "light" ? "#fff" : "#333")};
   text-align: center;
   border-radius: 5px;
   border: 0;
