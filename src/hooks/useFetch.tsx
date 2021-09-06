@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { routes, instance as axios } from "../config/request";
+import { instance as axios } from "../config/request";
 import UseFetch from "../interfaces/useFetch.interface";
 
 const useFetch = ({ url, username, additionalPath }: UseFetch) => {

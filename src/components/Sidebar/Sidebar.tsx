@@ -1,5 +1,4 @@
 import React from "react";
-import Profile from "../../resources/assets/images/profile.jpeg";
 import * as S from "./Styles";
 import SidebarType from "../../interfaces/sidebar.interface";
 

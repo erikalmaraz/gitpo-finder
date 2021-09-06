@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Router, RouteComponentProps, Link } from "@reach/router";
+import { Router, RouteComponentProps } from "@reach/router";
 import GlobalStyles from "./styles/Global";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./styles/Theme";
