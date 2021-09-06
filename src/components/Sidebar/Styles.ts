@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
 export const MainSidebarWrapper = styled.div`
-  max-width: 30%;
+  width: 30%;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
 `;
 
 export const ProfileTopContainer = styled.div`
@@ -20,4 +25,5 @@ export const ProfilePicture = styled.img`
   max-width: 260px;
   border-radius: 100%;
   object-fit: cover;
+  width: 100%;
 `;

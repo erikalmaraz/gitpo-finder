@@ -1,8 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 import { lightTheme } from "./Theme";
-
 type ThemeType = typeof lightTheme;
 const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
+  :root {
+    font-size: 14px;
+  }
   * {
     margin: 0;
     padding: 0;
@@ -13,7 +15,6 @@ const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
   body {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
-    font-size: 14px;
   }
   button {
     cursor: pointer;
@@ -28,6 +29,7 @@ const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
     margin: 8px;
     font-size: 15px;
   }
+
 `;
 
 export default GlobalStyles;

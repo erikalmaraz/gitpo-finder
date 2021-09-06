@@ -18,7 +18,7 @@ export const SearchRepositoryInput = styled.input`
   border: 1px solid #999;
   padding: 10px;
   margin: 10px 0;
-  background: #ddd;
+  background: ${({ theme }) => (theme === "light" ? "#ddd" : "#f9f9f9")};
 `;
 
 export const SelectFilter = styled.select`

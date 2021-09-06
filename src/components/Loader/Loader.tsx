@@ -1,11 +1,12 @@
 import React from "react";
-import Loading from '../../resources/assets/images/loader.gif';
+import Logo from "../../resources/assets/images/logo-01.png";
+import LoaderType from "../../interfaces/loader.interface";
 import * as S from "./Styles";
-const Header = () => {
+const Header = ({ theme }: LoaderType) => {
   return (
     <React.Fragment>
-      <S.LoaderWrapper>
-        <S.LoaderImg src={Loading} alt="Loader"/>
+      <S.LoaderWrapper theme={theme}>
+        <S.LoaderImg theme={theme} src={Logo} alt="Loader" />
       </S.LoaderWrapper>
     </React.Fragment>
   );

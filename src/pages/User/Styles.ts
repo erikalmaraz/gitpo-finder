@@ -4,6 +4,7 @@ export const CenterContainter = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 export const FinderContainer = styled.div`
@@ -29,6 +30,9 @@ export const RepositoryOverviewContainer = styled.div`
   width: 70%;
   padding-top: 20px;
   padding-left: 40px;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const RepositoryListContainer = styled.div`
@@ -45,7 +49,8 @@ export const TabItem = styled.div`
   text-align: center;
   font-weight: bold;
   font-size: 1rem;
-  border-bottom: 2px solid ${({ theme }) => (theme === "light" ? "#000" : "#fff")};
+  border-bottom: 2px solid
+    ${({ theme }) => (theme === "light" ? "#000" : "#fff")};
   padding-bottom: 5px;
   margin-bottom: -2px;
   cursor: pointer;

@@ -17,8 +17,8 @@ export const PaginationControllers = styled.div`
 `;
 
 export const ButtonControllers = styled.button`
-  background: #000;
-  color: #fff;
+  background: ${({ theme }) => (theme === "light" ? "#333" : "#f9f9f9")};
+  color: ${({ theme }) => (theme === "light" ? "#fff" : "#333")};
   border: 0;
   padding: 8px;
   border-radius: 6px;

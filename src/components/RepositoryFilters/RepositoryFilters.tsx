@@ -2,13 +2,14 @@ import React from "react";
 import * as S from "./Styles";
 import RepositoryFiltersType from "../../interfaces/repositoryFilters.interface";
 
-const RepositoryFilters = ({ setSearchByName, setSearchByType }: RepositoryFiltersType) => {
+const RepositoryFilters = ({ setSearchByName, setSearchByType, theme }: RepositoryFiltersType) => {
   return (
     <>
       <S.FiltersContainer>
         <S.SearchRepositoryContainer>
           <S.SearchRepositoryInput
             type="text"
+            theme={theme}
             placeholder="Type a repo name..."
             onChange={(e) => setSearchByName(e.target.value)}
           />

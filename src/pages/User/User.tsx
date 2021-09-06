@@ -129,6 +129,7 @@ const User = ({ theme }: UserType) => {
               <S.RepositoryListContainer>
                 <div>
                   <RepositoryFilters
+                    theme={theme}
                     setSearchByName={setSearchByName}
                     setSearchByType={setSearchByType}
                   />
@@ -148,6 +149,7 @@ const User = ({ theme }: UserType) => {
                 </div>
                 <Pagination
                   totalItems={userRepos.length}
+                  theme={theme}
                   nextPage={nextPage}
                   prevPage={prevPage}
                 />
@@ -160,7 +162,7 @@ const User = ({ theme }: UserType) => {
           </S.UserWasntFound>
         )}
       </section>
-      {(isInfoLoading || isReposLoading) && <Loader />}
+      {(isInfoLoading || isReposLoading) && <Loader theme={theme} />}
     </>
   );
 };
