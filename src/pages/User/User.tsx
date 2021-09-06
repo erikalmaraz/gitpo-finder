@@ -103,7 +103,7 @@ const User = () => {
         <S.FinderContainer>
           <UserFinder />
         </S.FinderContainer>
-        {userWasFound ? (
+        {userWasFound && !userErr ? (
           <S.CenterContainter>
             <Sidebar
               name={userInfo.name}

@@ -15,10 +15,13 @@ const useFetch = ({ url, username, additionalPath }: UseFetch) => {
         .get(`${url}/${username}${additionalPath}`)
         .then((res) => {
           setResponse(res.data);
-          setIsLoading(false);
+          setError("");
         })
         .catch((err) => {
+          console.log(err.message, " Show err");
           setError(err);
+        })
+        .finally(() => {
           setIsLoading(false);
         });
     };
