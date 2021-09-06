@@ -24,8 +24,12 @@ const User = () => {
     username: location.pathname.split("/")[2],
     additionalPath: "repos",
   };
-  const { response: userInfo, isLoading: isInfoLoading }: UserInfo =
-    useFetch(getUserInfoParams);
+  const {
+    response: userInfo,
+    isLoading: isInfoLoading,
+    error: userErr,
+  }: UserInfo = useFetch(getUserInfoParams);
+  const userWasFound = Object.keys(userInfo).length > 0;
   const { response: reposReponse, isLoading: isReposLoading }: UserInfo =
     useFetch(getUserRepoParams);
   const [userRepos, setUserRepos] = useState([]);
@@ -63,7 +67,8 @@ const User = () => {
   // Start pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsToSplice, setitemsToSplice] = useState(0);
-  let itemsToShow = 5;
+  const [itemsToShow, setItemsToShow] = useState(5);
+
   const nextPage = () => {
     const totalPages = Math.ceil(userRepos.length / itemsToShow);
     const isMaxPagesNotAchive = currentPage < totalPages;
@@ -88,7 +93,7 @@ const User = () => {
 
   useEffect(() => {
     applyFilters();
-    itemsToShow = 5;
+    setItemsToShow(5);
     setitemsToSplice(0);
   }, [searchByName, searchByType]);
 
@@ -98,48 +103,52 @@ const User = () => {
         <S.FinderContainer>
           <UserFinder />
         </S.FinderContainer>
-        <S.CenterContainter>
-          <Sidebar
-            name={userInfo.name}
-            image={userInfo.avatar_url}
-            description={userInfo.bio}
-            username={userInfo.login}
-          />
-          <S.RepositoryOverviewContainer>
-            <S.TabsContainer>
-              <S.TabItem>
-                <span></span>
-                <span>Overview</span>
-              </S.TabItem>
-            </S.TabsContainer>
-            <S.RepositoryListContainer>
-              <div>
-                <RepositoryFilters
-                  setSearchByName={setSearchByName}
-                  setSearchByType={setSearchByType}
+        {userWasFound ? (
+          <S.CenterContainter>
+            <Sidebar
+              name={userInfo.name}
+              image={userInfo.avatar_url}
+              description={userInfo.bio}
+              username={userInfo.login}
+            />
+            <S.RepositoryOverviewContainer>
+              <S.TabsContainer>
+                <S.TabItem>
+                  <span></span>
+                  <span>Overview</span>
+                </S.TabItem>
+              </S.TabsContainer>
+              <S.RepositoryListContainer>
+                <div>
+                  <RepositoryFilters
+                    setSearchByName={setSearchByName}
+                    setSearchByType={setSearchByType}
+                  />
+                </div>
+                <div>
+                  {!isReposLoading &&
+                    userRepos
+                      .slice(itemsToSplice, itemsToSplice + itemsToShow)
+                      .map((repo: any, index: number) => (
+                        <Repository
+                          name={repo.name}
+                          description={repo.description}
+                          language={repo.language}
+                          key={repo.id}
+                        />
+                      ))}
+                </div>
+                <Pagination
+                  totalItems={userRepos.length}
+                  nextPage={nextPage}
+                  prevPage={prevPage}
                 />
-              </div>
-              <div>
-                {!isReposLoading &&
-                  userRepos
-                    .slice(itemsToSplice, itemsToSplice + itemsToShow)
-                    .map((repo: any, index: number) => (
-                      <Repository
-                        name={repo.name}
-                        description={repo.description}
-                        language={repo.language}
-                        key={repo.id}
-                      />
-                    ))}
-              </div>
-              <Pagination
-                totalItems={userRepos.length}
-                nextPage={nextPage}
-                prevPage={prevPage}
-              />
-            </S.RepositoryListContainer>
-          </S.RepositoryOverviewContainer>
-        </S.CenterContainter>
+              </S.RepositoryListContainer>
+            </S.RepositoryOverviewContainer>
+          </S.CenterContainter>
+        ) : (
+          <S.UserWasntFound>User wasn't found, please try with another.</S.UserWasntFound>
+        )}
       </section>
       {(isInfoLoading || isReposLoading) && <Loader />}
     </>

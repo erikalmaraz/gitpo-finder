@@ -50,3 +50,10 @@ export const TabItem = styled.div`
   margin-bottom: -2px;
   cursor: pointer;
 `;
+
+export const UserWasntFound = styled.div`
+  width: 80%;
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 0.9rem;
+`;
